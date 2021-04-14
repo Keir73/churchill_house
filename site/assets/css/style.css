@@ -1,0 +1,160 @@
+
+/* Front-end Web Design (11056)
+Project 2 - Responsive Website
+Keir Herbert (u3211239)
+April 2021 */
+
+/* Reset the CSS formatting to a known baseline */
+@import url(reset.css);
+
+/* Define variables */
+:root {
+    --paper: #fefff9;
+    --transparent-charcoal: #383838e0;
+}
+
+/* Format major page elements */
+body {
+    background-color: var(--paper);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+header {
+    background-color: var(--transparent-charcoal);
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: var(--transparent-charcoal);
+    color: #ffffff;
+    padding: 16px;
+    text-align: center;
+}
+
+/* Text formatting */
+h1, h2, h3, h4, h5, h6{
+    font-weight: bold;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+p{
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+/* List formatting */
+ul {
+    line-height: 20px;
+    list-style-type: square;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    padding: 16px;
+}
+
+nav li a {
+    color:#ffffff;
+    padding: 11px;
+    text-decoration: none; /* Remove hyperlink underline */
+    text-transform: uppercase;
+}
+
+nav li a:hover {
+    background-color: #00000085;
+    border-radius: 5px;
+    color:#ffffff;
+}
+
+/* Classes for customisation */
+.title {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #000000;
+}
+
+.currentpage {
+    border-bottom: black;
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+}
+
+/* Image management */
+#hero-container {
+    max-width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.content-gallery {
+    background-color: var(--transparent-charcoal);
+    display: grid;
+    grid-template-areas:
+        "box1 box2 box3"
+        "box4 box2 box3"
+        "box4 box5 box5";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 200px);
+    gap: 0.5em;
+    margin: auto;
+    max-width: 960px;
+}
+
+.content-gallery > * {
+    background-color: rgba(255, 115, 0, 0.4);
+    padding: 10px;
+}
+
+.image1 {
+    grid-area: box1;
+}
+
+.image2 {
+    grid-area: box2;
+}
+
+.image3 {
+    grid-area: box3;
+}
+
+.image4 {
+    grid-area: box4;
+}
+
+.image5 {
+    grid-area: box5;
+}

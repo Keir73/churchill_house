@@ -1,23 +1,37 @@
+<!--Front-end Web Design (11056)
+    Project 2 - Responsive Website
+    Keir Herbert (u3211239)
+    April 2021-->
+
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <title>Churchill House</title>
         <meta charset="utf-8">
+        <link href="assets/css/style.css" rel="stylesheet">
     </head>
 
     <body>
 
         <header>
-            <h1><a href="description.html">Beautifully Brutal</a></h1>
-            <h1><a href="history.html">History</a></h1>
-            <h1><a href="index.html">Churchill House</a></h1>
-            <h1><a href="robin_boyd.html">Robin Boyd</a></h1>
-            <h1><a href="significance.html">Significance</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="description.html">Beautifully Brutal</a></li>
+                    <li><a href="history.html" class="currentpage">History</a></li>
+                    <li><a href="index.html" class="title">Churchill House</a></li>
+                    <li><a href="robin_boyd.html">Robin Boyd</a></li>
+                    <li><a href="significance.html">Significance</a></li>
+                </ul>
+            </nav>
         </header>
 
+        <div id="hero-container">
+            <img src="assets/images/churchill-house-plans.jpg" alt="Plans showing proposed site and elevations for building.">
+        </div>
+
         <main>
-            <h2>History</h2>
+            <h1>History</h1>
             
             <p>Churchill House was built by the Winston Churchill Memorial Trust of Australia. The Trust began consideration of erecting a building of its own in 1967 and formed a building committee in 1968. In 1969 it acquired a lease for land on Northbourne
              Avenue, the current site, and engaged the architect Robin Boyd to design the building.</p>
@@ -47,7 +61,7 @@
         </main>
 
         <footer>
-            <p>This website was produced by students in the Faculty of Arts & Design, University of Canberra, 2021.</p>
+            This website was produced by students in the Faculty of Arts & Design, University of Canberra, 2021.
         </footer>
 
     </body>
