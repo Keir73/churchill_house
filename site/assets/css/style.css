@@ -73,6 +73,14 @@ p {
     margin-bottom: 1em;
 }
 
+cite {
+    font-style: italic;
+}
+
+figcaption {
+    font-size: 0.6em;
+}
+
 /* List formatting */
 ul {
     list-style-type: square;
@@ -81,21 +89,23 @@ ul {
 }
 
 nav ul {
+    font-size: 0.8em;
+    list-style-type: none;
     margin: 0;
     padding: 0;
     text-align: center;
+    text-transform: uppercase;
+    width: 100%;
 }
 
 nav li {
     display: inline-block;
-    padding: 11px;
+    padding: 10px 5px 10px 5px;
 }
 
 nav li a {
     color:#ffffff;
-    padding: 11px;
-    text-decoration: none; /* Remove hyperlink underline */
-    text-transform: uppercase;
+    padding: 10px 5px 10px 5px;
 }
 
 nav li a:hover {
@@ -156,7 +166,9 @@ img {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: none;
     gap: 0.75em;
+    list-style-type: none;
     margin: 2em auto 2em auto;
+    padding: 0;
 }
 
 #image1 {
@@ -177,4 +189,94 @@ img {
 #image4 {
     grid-area: box4;
     position: relative;
+}
+
+#single-photo {
+    margin: 1em auto 1em auto;
+}
+
+#tri-photo-gallery {
+    display: grid;
+    grid-template-areas:
+        "photo1 photo2 photo3";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: none;
+    gap: 0.75em;
+    list-style-type: none;
+    margin: 2em auto 2em auto;
+    padding: 0;
+}
+
+#tri-photo1 {
+    grid-area: photo1;
+    position: relative;
+}
+
+#tri-photo2 {
+    grid-area: photo2;
+    position: relative;
+}
+
+#tri-photo3 {
+    grid-area: photo3;
+    position: relative;
+}
+
+/* Media queries section*/
+
+/* This first query manages the width of the main content. On a super wide screen, the grid mechanism narrows the main content to a visually pleasing width.
+   Once the browser window width drops to a more common FHD arrangement, the main content is allowed to spread out a bit more. */
+@media screen and (max-width: 1800px) {
+    body {
+        grid-template-areas:
+            "navi navi navi navi navi navi navi navi navi navi"
+            "hero hero hero hero hero hero hero hero hero hero"
+            ".    main main main main main main main main    ."
+            "foot foot foot foot foot foot foot foot foot foot";
+    }
+}
+
+/* At a browser window width of around 850 pixels the main navigation bar at the top of the screen starts to wrap and look ugly. So at this point it's changed
+   to a vertical list. */
+@media screen and (max-width: 850px) {
+    nav li {
+        display:list-item;
+    }
+}
+
+/* When the browser window width drops below 800 pixels, the main content is allowed to occupy the entire screen width ... save for a small margin to keep
+   things looking pretty. */
+@media screen and (max-width: 800px) {
+    body {
+        grid-template-areas:
+            "navi navi navi navi navi navi navi navi navi navi"
+            "hero hero hero hero hero hero hero hero hero hero"
+            "main main main main main main main main main main"
+            "foot foot foot foot foot foot foot foot foot foot";
+        }
+    
+    main {
+        margin: auto 0.5em auto 0.5em;
+    }
+}
+
+/* Once the browser width drops below 650 pixels, the content-gallery and tri-photo gallery elements starts to look ungainly, so they're both adjusted to display
+   a single column layout. */
+@media screen and (max-width: 650px) {
+    #content-gallery {
+        grid-template-areas:
+            "box1"
+            "box2"
+            "box3"
+            "box4";
+        grid-template-columns: 1fr;
+    }
+    
+    #tri-photo-gallery {
+        grid-template-areas:
+            "photo1"
+            "photo2"
+            "photo3";
+        grid-template-columns: 1fr
+    }
 }
