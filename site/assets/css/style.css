@@ -31,8 +31,9 @@ body {
 header {
     background-color: var(--transparent-charcoal);
     grid-area: navi;
-    /* position: sticky; */
+    position: sticky;
     top: 0;
+    z-index: 100; /* make sure that sticky header stays on top of eveything else! */
 }
 
 main {
@@ -154,10 +155,11 @@ img {
 
 #hero-container {
     grid-area: hero;
+    margin: 0 0 3em 0; /* create a generous gap under the hero image banner */
     max-height: 500px;
 }
 
-#content-gallery {
+#content-mosaic {
     display: grid;
     grid-template-areas:
         "box1 box2 box2"
@@ -192,33 +194,57 @@ img {
 }
 
 #single-photo {
-    margin: 1em auto 1em auto;
+    margin: 1em auto 3em auto;
 }
 
 #tri-photo-gallery {
     display: grid;
     grid-template-areas:
-        "photo1 photo2 photo3";
+        "tri-photo1 tri-photo2 tri-photo3";
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: none;
-    gap: 0.75em;
+    column-gap: 0.75em;
+    row-gap: 3em;
     list-style-type: none;
-    margin: 2em auto 2em auto;
+    margin: 2em auto 3em auto;
     padding: 0;
 }
 
 #tri-photo1 {
-    grid-area: photo1;
+    grid-area: tri-photo1;
     position: relative;
 }
 
 #tri-photo2 {
-    grid-area: photo2;
+    grid-area: tri-photo2;
     position: relative;
 }
 
 #tri-photo3 {
-    grid-area: photo3;
+    grid-area: tri-photo3;
+    position: relative;
+}
+
+#bi-photo-gallery {
+    display: grid;
+    grid-template-areas:
+        "bi-photo1 bi-photo2";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+    column-gap: 0.75em;
+    row-gap: 3em;
+    list-style-type: none;
+    margin: 2em auto 3em auto;
+    padding: 0;
+}
+
+#bi-photo1 {
+    grid-area: bi-photo1;
+    position: relative;
+}
+
+#bi-photo2 {
+    grid-area: bi-photo2;
     position: relative;
 }
 
@@ -260,10 +286,10 @@ img {
     }
 }
 
-/* Once the browser width drops below 650 pixels, the content-gallery and tri-photo gallery elements starts to look ungainly, so they're both adjusted to display
+/* Once the browser width drops below 650 pixels, the content-mosaic, bi-photo and tri-photo gallery elements starts to look ungainly, so they're all adjusted to display
    a single column layout. */
 @media screen and (max-width: 650px) {
-    #content-gallery {
+    #content-mosaic {
         grid-template-areas:
             "box1"
             "box2"
@@ -274,9 +300,16 @@ img {
     
     #tri-photo-gallery {
         grid-template-areas:
-            "photo1"
-            "photo2"
-            "photo3";
+            "tri-photo1"
+            "tri-photo2"
+            "tri-photo3";
         grid-template-columns: 1fr
+    }
+
+    #bi-photo-gallery {
+        grid-template-areas:
+            "bi-photo1"
+            "bi-photo2";
+        grid-template-columns: 1fr;
     }
 }
