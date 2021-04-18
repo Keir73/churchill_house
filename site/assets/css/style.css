@@ -146,7 +146,7 @@ nav li a:hover {
     right: 10px;
 }
 
-/* Image management */
+/* Image management and grid stuff*/
 img {
     width: 100%;
     height: 100%;
@@ -246,6 +246,10 @@ img {
 #bi-photo2 {
     grid-area: bi-photo2;
     position: relative;
+}
+
+.gridcaption {
+    font-size: 0.6em;
 }
 
 /* Media queries section*/
