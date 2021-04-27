@@ -9,7 +9,8 @@ April 2021 */
 /* Define colour variables */
 :root {
     --paper: #fefff9;
-    --transparent-charcoal: #383838e0;
+    --smoked-orange: #443728b0;
+    --orange-highlight: #fd7a00ab;
 }
 
 /* Format major page elements */
@@ -17,11 +18,11 @@ body {
     background-color: var(--paper);
     display: grid;
     grid-template-areas:
-        "navi navi navi navi navi navi navi navi navi navi"
-        "hero hero hero hero hero hero hero hero hero hero"
-        ".    .    main main main main main main .       ."
-        "foot foot foot foot foot foot foot foot foot foot";
-    grid-template-columns: repeat(10, 1fr);
+        "navi navi navi navi navi navi navi navi navi navi navi navi"
+        "hero hero hero hero hero hero hero hero hero hero hero hero"
+        ".    .    .    main main main main main main    .    .    ."
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.25em;
@@ -29,7 +30,7 @@ body {
 }
 
 header {
-    background-color: var(--transparent-charcoal);
+    background-color: var(--smoked-orange);
     grid-area: navi;
     position: sticky;
     top: 0;
@@ -41,7 +42,7 @@ main {
 }
 
 footer {
-    background-color: var(--transparent-charcoal);
+    background-color: var(--smoked-orange);
     grid-area: foot;
     color: #ffffff;
     font-size: 0.75em;
@@ -101,7 +102,7 @@ nav ul {
 
 nav li {
     display: inline-block;
-    padding: 10px 5px 10px 5px;
+    padding: 10px 2em 10px 2em;
 }
 
 nav li a {
@@ -110,13 +111,13 @@ nav li a {
 }
 
 nav li a:hover {
-    background-color: #00000085;
+    background-color: #fd7a0042;
     color:#ffffff;
 }
 
 /* Classes for customisation */
 .currentpage {
-    background-color: #36363685;
+    background-color: var(--orange-highlight);
     color:#ffffff;
 }
 
@@ -124,7 +125,7 @@ nav li a:hover {
     color: rgb(255, 255, 255);
     font-size: 1.5em;
     font-weight: bold;
-    text-shadow: 1px 1px 5px var(--transparent-charcoal);
+    text-shadow: 1px 1px 5px var(--smoked-orange);
 }
 
 .title {
@@ -259,16 +260,44 @@ img {
 @media screen and (max-width: 1800px) {
     body {
         grid-template-areas:
-            "navi navi navi navi navi navi navi navi navi navi"
-            "hero hero hero hero hero hero hero hero hero hero"
-            ".    main main main main main main main main    ."
-            "foot foot foot foot foot foot foot foot foot foot";
+            "navi navi navi navi navi navi navi navi navi navi navi navi"
+            "hero hero hero hero hero hero hero hero hero hero hero hero"
+            ".    .    main main main main main main main main    .    ."
+            "foot foot foot foot foot foot foot foot foot foot foot foot";
     }
 }
 
-/* At a browser window width of around 850 pixels the main navigation bar at the top of the screen starts to wrap and look ugly. So at this point it's changed
-   to a vertical list. */
-@media screen and (max-width: 850px) {
+/* When the browser window width drops to 1200 pixels, the main content is allowed to occupy yet more of the screen width. */
+   @media screen and (max-width: 1200px) {
+    body {
+        grid-template-areas:
+            "navi navi navi navi navi navi navi navi navi navi navi navi"
+            "hero hero hero hero hero hero hero hero hero hero hero hero"
+            ".    main main main main main main main main main main    ."
+            "foot foot foot foot foot foot foot foot foot foot foot foot";
+        }
+    
+    main {
+        margin: auto 0.5em auto 0.5em;
+    }
+}
+
+/* At a browser window width of around 1100 pixels the main navigation bar at the top of the screen starts to wrap and look ugly. So at this point it's compressed a little. */
+@media screen and (max-width: 1100px) {
+    nav li {
+        padding: 10px 1em 10px 1em;
+    }
+}
+
+/* At a browser window width of 950 pixels the main navigation bar at the top of the screen is compressed a little more. */
+@media screen and (max-width: 950px) {
+    nav li {
+        padding: 10px .5em 10px .5em;
+    }
+}
+        
+/* Finally, at a browser window width of around 860 pixels the main navigation bar is changed to a vertical list. */
+@media screen and (max-width: 860px) {
     nav li {
         display:list-item;
     }
@@ -279,10 +308,10 @@ img {
 @media screen and (max-width: 800px) {
     body {
         grid-template-areas:
-            "navi navi navi navi navi navi navi navi navi navi"
-            "hero hero hero hero hero hero hero hero hero hero"
-            "main main main main main main main main main main"
-            "foot foot foot foot foot foot foot foot foot foot";
+            "navi navi navi navi navi navi navi navi navi navi navi navi"
+            "hero hero hero hero hero hero hero hero hero hero hero hero"
+            "main main main main main main main main main main main main"
+            "foot foot foot foot foot foot foot foot foot foot foot foot";
         }
     
     main {
