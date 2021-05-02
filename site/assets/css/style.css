@@ -198,6 +198,11 @@ img {
     margin: 1em auto 3em auto;
 }
 
+#single-photo img {
+    max-height: 800px;
+    vertical-align: middle;
+}
+
 #tri-photo-gallery {
     display: grid;
     grid-template-areas:
