@@ -147,6 +147,25 @@ nav li a:hover {
     right: 10px;
 }
 
+/* Return to top button for mobile view */
+#return-to-top {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: .5em;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--smoked-orange);
+    color: white;
+    cursor: pointer;
+    padding: .5em;
+}
+
+#return-to-top:hover {
+    background-color: #fd7a0042;
+}
+
 /* Image management and grid stuff*/
 img {
     width: 100%;
@@ -301,10 +320,19 @@ img {
     }
 }
         
-/* Finally, at a browser window width of around 860 pixels the main navigation bar is changed to a vertical list. */
+/* Finally, at a browser window width of around 860 pixels the main navigation bar is changed to a vertical list and is made non-sticky so that it can roll off the screen.
+   The return to top button is also made visible for easier navigation in this view */
 @media screen and (max-width: 860px) {
     nav li {
         display:list-item;
+    }
+
+    header {
+        position: unset;
+    }
+
+    #return-to-top {
+        display: unset;
     }
 }
 
